@@ -1,5 +1,5 @@
 # prisma-vagrant-demo
-A repo which provides Vagrant support to stand up an instance of Postgres, Prisma, and PGAdmin
+A repo which provides Vagrant support to stand up an instance of Postgres, Prisma, Typescript and PGAdmin
 
 1. Clone the repo
 2. Edit the .env file to provide your desired credentials
@@ -12,6 +12,7 @@ A repo which provides Vagrant support to stand up an instance of Postgres, Prism
 If you want to connect to the database from PGAdmin, create a new server connection.  On the General tab, provide a name.  On the Connection tab, specify a host name.  Use the username and password and database used in the .env file.
 
 Helpful links:
+https://www.prisma.io/docs/get-started/01-setting-up-prisma-existing-database-TYPESCRIPT-t003/
 
 
 
