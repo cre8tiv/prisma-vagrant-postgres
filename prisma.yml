@@ -1,5 +1,8 @@
 endpoint: http://localhost:9901
-datamodel: datamodel.prisma
+datamodel: 
+  - models/address.prisma
+  - models/post.prisma
+  - models/user.prisma
 
 generate:
   - generator: typescript-client
@@ -8,4 +11,3 @@ generate:
 hooks:
   post-deploy:
     - prisma generate 
-    - npx nexus-prisma-generate --client ./generated/prisma-client --output ./generated/nexus-prisma   

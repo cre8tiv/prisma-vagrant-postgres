@@ -15,49 +15,74 @@ export interface NexusPrismaTypes {
   objectTypes: {
     fields: {
       Query: QueryObject
-      User: UserObject
-      Post: PostObject
-      UserConnection: UserConnectionObject
+      Address: AddressObject
+      AddressConnection: AddressConnectionObject
       PageInfo: PageInfoObject
-      UserEdge: UserEdgeObject
-      AggregateUser: AggregateUserObject
+      AddressEdge: AddressEdgeObject
+      AggregateAddress: AggregateAddressObject
+      Post: PostObject
+      User: UserObject
       PostConnection: PostConnectionObject
       PostEdge: PostEdgeObject
       AggregatePost: AggregatePostObject
+      UserConnection: UserConnectionObject
+      UserEdge: UserEdgeObject
+      AggregateUser: AggregateUserObject
       Mutation: MutationObject
       BatchPayload: BatchPayloadObject
       Subscription: SubscriptionObject
-      UserSubscriptionPayload: UserSubscriptionPayloadObject
-      UserPreviousValues: UserPreviousValuesObject
+      AddressSubscriptionPayload: AddressSubscriptionPayloadObject
+      AddressPreviousValues: AddressPreviousValuesObject
       PostSubscriptionPayload: PostSubscriptionPayloadObject
       PostPreviousValues: PostPreviousValuesObject
+      UserSubscriptionPayload: UserSubscriptionPayloadObject
+      UserPreviousValues: UserPreviousValuesObject
     }
     fieldsDetails: {
       Query: QueryFieldDetails
-      User: UserFieldDetails
-      Post: PostFieldDetails
-      UserConnection: UserConnectionFieldDetails
+      Address: AddressFieldDetails
+      AddressConnection: AddressConnectionFieldDetails
       PageInfo: PageInfoFieldDetails
-      UserEdge: UserEdgeFieldDetails
-      AggregateUser: AggregateUserFieldDetails
+      AddressEdge: AddressEdgeFieldDetails
+      AggregateAddress: AggregateAddressFieldDetails
+      Post: PostFieldDetails
+      User: UserFieldDetails
       PostConnection: PostConnectionFieldDetails
       PostEdge: PostEdgeFieldDetails
       AggregatePost: AggregatePostFieldDetails
+      UserConnection: UserConnectionFieldDetails
+      UserEdge: UserEdgeFieldDetails
+      AggregateUser: AggregateUserFieldDetails
       Mutation: MutationFieldDetails
       BatchPayload: BatchPayloadFieldDetails
       Subscription: SubscriptionFieldDetails
-      UserSubscriptionPayload: UserSubscriptionPayloadFieldDetails
-      UserPreviousValues: UserPreviousValuesFieldDetails
+      AddressSubscriptionPayload: AddressSubscriptionPayloadFieldDetails
+      AddressPreviousValues: AddressPreviousValuesFieldDetails
       PostSubscriptionPayload: PostSubscriptionPayloadFieldDetails
       PostPreviousValues: PostPreviousValuesFieldDetails
+      UserSubscriptionPayload: UserSubscriptionPayloadFieldDetails
+      UserPreviousValues: UserPreviousValuesFieldDetails
     }
   }
   inputTypes: {
     fields: {
-      UserWhereUniqueInput: UserWhereUniqueInputInputObject
+      AddressWhereUniqueInput: AddressWhereUniqueInputInputObject
+      AddressWhereInput: AddressWhereInputInputObject
+      PostWhereUniqueInput: PostWhereUniqueInputInputObject
       PostWhereInput: PostWhereInputInputObject
       UserWhereInput: UserWhereInputInputObject
-      PostWhereUniqueInput: PostWhereUniqueInputInputObject
+      UserWhereUniqueInput: UserWhereUniqueInputInputObject
+      AddressCreateInput: AddressCreateInputInputObject
+      AddressUpdateInput: AddressUpdateInputInputObject
+      AddressUpdateManyMutationInput: AddressUpdateManyMutationInputInputObject
+      PostCreateInput: PostCreateInputInputObject
+      UserCreateOneWithoutPostsInput: UserCreateOneWithoutPostsInputInputObject
+      UserCreateWithoutPostsInput: UserCreateWithoutPostsInputInputObject
+      PostUpdateInput: PostUpdateInputInputObject
+      UserUpdateOneWithoutPostsInput: UserUpdateOneWithoutPostsInputInputObject
+      UserUpdateWithoutPostsDataInput: UserUpdateWithoutPostsDataInputInputObject
+      UserUpsertWithoutPostsInput: UserUpsertWithoutPostsInputInputObject
+      PostUpdateManyMutationInput: PostUpdateManyMutationInputInputObject
       UserCreateInput: UserCreateInputInputObject
       PostCreateManyWithoutAuthorInput: PostCreateManyWithoutAuthorInputInputObject
       PostCreateWithoutAuthorInput: PostCreateWithoutAuthorInputInputObject
@@ -70,19 +95,13 @@ export interface NexusPrismaTypes {
       PostUpdateManyWithWhereNestedInput: PostUpdateManyWithWhereNestedInputInputObject
       PostUpdateManyDataInput: PostUpdateManyDataInputInputObject
       UserUpdateManyMutationInput: UserUpdateManyMutationInputInputObject
-      PostCreateInput: PostCreateInputInputObject
-      UserCreateOneWithoutPostsInput: UserCreateOneWithoutPostsInputInputObject
-      UserCreateWithoutPostsInput: UserCreateWithoutPostsInputInputObject
-      PostUpdateInput: PostUpdateInputInputObject
-      UserUpdateOneWithoutPostsInput: UserUpdateOneWithoutPostsInputInputObject
-      UserUpdateWithoutPostsDataInput: UserUpdateWithoutPostsDataInputInputObject
-      UserUpsertWithoutPostsInput: UserUpsertWithoutPostsInputInputObject
-      PostUpdateManyMutationInput: PostUpdateManyMutationInputInputObject
-      UserSubscriptionWhereInput: UserSubscriptionWhereInputInputObject
+      AddressSubscriptionWhereInput: AddressSubscriptionWhereInputInputObject
       PostSubscriptionWhereInput: PostSubscriptionWhereInputInputObject
+      UserSubscriptionWhereInput: UserSubscriptionWhereInputInputObject
     }
   }
   enumTypes: {
+    AddressOrderByInput: AddressOrderByInputValues,
     PostOrderByInput: PostOrderByInputValues,
     UserOrderByInput: UserOrderByInputValues,
     MutationType: MutationTypeValues,
@@ -93,25 +112,31 @@ export interface NexusPrismaTypes {
 
 type QueryObject =
   | QueryFields
-  | { name: 'user', args?: QueryUserArgs[] | false, alias?: string  } 
-  | { name: 'users', args?: QueryUsersArgs[] | false, alias?: string  } 
-  | { name: 'usersConnection', args?: QueryUsersConnectionArgs[] | false, alias?: string  } 
+  | { name: 'address', args?: QueryAddressArgs[] | false, alias?: string  } 
+  | { name: 'addresses', args?: QueryAddressesArgs[] | false, alias?: string  } 
+  | { name: 'addressesConnection', args?: QueryAddressesConnectionArgs[] | false, alias?: string  } 
   | { name: 'post', args?: QueryPostArgs[] | false, alias?: string  } 
   | { name: 'posts', args?: QueryPostsArgs[] | false, alias?: string  } 
   | { name: 'postsConnection', args?: QueryPostsConnectionArgs[] | false, alias?: string  } 
+  | { name: 'user', args?: QueryUserArgs[] | false, alias?: string  } 
+  | { name: 'users', args?: QueryUsersArgs[] | false, alias?: string  } 
+  | { name: 'usersConnection', args?: QueryUsersConnectionArgs[] | false, alias?: string  } 
 
 type QueryFields =
-  | 'user'
-  | 'users'
-  | 'usersConnection'
+  | 'address'
+  | 'addresses'
+  | 'addressesConnection'
   | 'post'
   | 'posts'
   | 'postsConnection'
+  | 'user'
+  | 'users'
+  | 'usersConnection'
 
 
-type QueryUserArgs =
+type QueryAddressArgs =
   | 'where'
-type QueryUsersArgs =
+type QueryAddressesArgs =
   | 'where'
   | 'orderBy'
   | 'skip'
@@ -119,7 +144,7 @@ type QueryUsersArgs =
   | 'before'
   | 'first'
   | 'last'
-type QueryUsersConnectionArgs =
+type QueryAddressesConnectionArgs =
   | 'where'
   | 'orderBy'
   | 'skip'
@@ -145,47 +170,65 @@ type QueryPostsConnectionArgs =
   | 'before'
   | 'first'
   | 'last'
+type QueryUserArgs =
+  | 'where'
+type QueryUsersArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
+type QueryUsersConnectionArgs =
+  | 'where'
+  | 'orderBy'
+  | 'skip'
+  | 'after'
+  | 'before'
+  | 'first'
+  | 'last'
   
 
 export interface QueryFieldDetails {
-  user: {
-    type: 'User'
-    args: Record<QueryUserArgs, core.NexusArgDef<string>>
+  address: {
+    type: 'Address'
+    args: Record<QueryAddressArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: true
     resolve: (
       root: core.RootValue<"Query">,
-      args: { where: UserWhereUniqueInput }  ,
+      args: { where: AddressWhereUniqueInput }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.User | null> | prisma.User | null
+    ) => Promise<prisma.Address | null> | prisma.Address | null
   }
-  users: {
-    type: 'User'
-    args: Record<QueryUsersArgs, core.NexusArgDef<string>>
+  addresses: {
+    type: 'Address'
+    args: Record<QueryAddressesArgs, core.NexusArgDef<string>>
     description: string
     list: true
     nullable: false
     resolve: (
       root: core.RootValue<"Query">,
-      args: { where?: UserWhereInput | null, orderBy?: prisma.UserOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      args: { where?: AddressWhereInput | null, orderBy?: prisma.AddressOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.User[]> | prisma.User[]
+    ) => Promise<prisma.Address[]> | prisma.Address[]
   }
-  usersConnection: {
-    type: 'UserConnection'
-    args: Record<QueryUsersConnectionArgs, core.NexusArgDef<string>>
+  addressesConnection: {
+    type: 'AddressConnection'
+    args: Record<QueryAddressesConnectionArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: false
     resolve: (
       root: core.RootValue<"Query">,
-      args: { where?: UserWhereInput | null, orderBy?: prisma.UserOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      args: { where?: AddressWhereInput | null, orderBy?: prisma.AddressOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.UserConnection> | prisma.UserConnection
+    ) => Promise<prisma.AddressConnection> | prisma.AddressConnection
   }
   post: {
     type: 'Post'
@@ -225,6 +268,350 @@ export interface QueryFieldDetails {
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.PostConnection> | prisma.PostConnection
+  }
+  user: {
+    type: 'User'
+    args: Record<QueryUserArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where: UserWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.User | null> | prisma.User | null
+  }
+  users: {
+    type: 'User'
+    args: Record<QueryUsersArgs, core.NexusArgDef<string>>
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: UserWhereInput | null, orderBy?: prisma.UserOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.User[]> | prisma.User[]
+  }
+  usersConnection: {
+    type: 'UserConnection'
+    args: Record<QueryUsersConnectionArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Query">,
+      args: { where?: UserWhereInput | null, orderBy?: prisma.UserOrderByInput | null, skip?: number | null, after?: string | null, before?: string | null, first?: number | null, last?: number | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.UserConnection> | prisma.UserConnection
+  }
+}
+  
+
+// Types for Address
+
+type AddressObject =
+  | AddressFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'street', args?: [] | false, alias?: string  } 
+  | { name: 'city', args?: [] | false, alias?: string  } 
+  | { name: 'state', args?: [] | false, alias?: string  } 
+  | { name: 'zip', args?: [] | false, alias?: string  } 
+
+type AddressFields =
+  | 'id'
+  | 'street'
+  | 'city'
+  | 'state'
+  | 'zip'
+
+
+
+  
+
+export interface AddressFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  street: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  city: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  state: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  zip: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for AddressConnection
+
+type AddressConnectionObject =
+  | AddressConnectionFields
+  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
+  | { name: 'edges', args?: [] | false, alias?: string  } 
+  | { name: 'aggregate', args?: [] | false, alias?: string  } 
+
+type AddressConnectionFields =
+  | 'pageInfo'
+  | 'edges'
+  | 'aggregate'
+
+
+
+  
+
+export interface AddressConnectionFieldDetails {
+  pageInfo: {
+    type: 'PageInfo'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"AddressConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.PageInfo> | prisma.PageInfo
+  }
+  edges: {
+    type: 'AddressEdge'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"AddressConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AddressEdge[]> | prisma.AddressEdge[]
+  }
+  aggregate: {
+    type: 'AggregateAddress'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"AddressConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AggregateAddress> | prisma.AggregateAddress
+  }
+}
+  
+
+// Types for PageInfo
+
+type PageInfoObject =
+  | PageInfoFields
+  | { name: 'hasNextPage', args?: [] | false, alias?: string  } 
+  | { name: 'hasPreviousPage', args?: [] | false, alias?: string  } 
+  | { name: 'startCursor', args?: [] | false, alias?: string  } 
+  | { name: 'endCursor', args?: [] | false, alias?: string  } 
+
+type PageInfoFields =
+  | 'hasNextPage'
+  | 'hasPreviousPage'
+  | 'startCursor'
+  | 'endCursor'
+
+
+
+  
+
+export interface PageInfoFieldDetails {
+  hasNextPage: {
+    type: 'Boolean'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  hasPreviousPage: {
+    type: 'Boolean'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  startCursor: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  endCursor: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+}
+  
+
+// Types for AddressEdge
+
+type AddressEdgeObject =
+  | AddressEdgeFields
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'cursor', args?: [] | false, alias?: string  } 
+
+type AddressEdgeFields =
+  | 'node'
+  | 'cursor'
+
+
+
+  
+
+export interface AddressEdgeFieldDetails {
+  node: {
+    type: 'Address'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"AddressEdge">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.Address> | prisma.Address
+  }
+  cursor: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for AggregateAddress
+
+type AggregateAddressObject =
+  | AggregateAddressFields
+  | { name: 'count', args?: [] | false, alias?: string  } 
+
+type AggregateAddressFields =
+  | 'count'
+
+
+
+  
+
+export interface AggregateAddressFieldDetails {
+  count: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for Post
+
+type PostObject =
+  | PostFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'title', args?: [] | false, alias?: string  } 
+  | { name: 'published', args?: [] | false, alias?: string  } 
+  | { name: 'author', args?: [] | false, alias?: string  } 
+
+type PostFields =
+  | 'id'
+  | 'title'
+  | 'published'
+  | 'author'
+
+
+
+  
+
+export interface PostFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  title: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  published: {
+    type: 'Boolean'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  author: {
+    type: 'User'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Post">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.User | null> | prisma.User | null
   }
 }
   
@@ -292,246 +679,6 @@ export interface UserFieldDetails {
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.Post[]> | prisma.Post[]
-  }
-}
-  
-
-// Types for Post
-
-type PostObject =
-  | PostFields
-  | { name: 'id', args?: [] | false, alias?: string  } 
-  | { name: 'title', args?: [] | false, alias?: string  } 
-  | { name: 'published', args?: [] | false, alias?: string  } 
-  | { name: 'author', args?: [] | false, alias?: string  } 
-
-type PostFields =
-  | 'id'
-  | 'title'
-  | 'published'
-  | 'author'
-
-
-
-  
-
-export interface PostFieldDetails {
-  id: {
-    type: 'ID'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  title: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  published: {
-    type: 'Boolean'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  author: {
-    type: 'User'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: (
-      root: core.RootValue<"Post">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.User | null> | prisma.User | null
-  }
-}
-  
-
-// Types for UserConnection
-
-type UserConnectionObject =
-  | UserConnectionFields
-  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
-  | { name: 'edges', args?: [] | false, alias?: string  } 
-  | { name: 'aggregate', args?: [] | false, alias?: string  } 
-
-type UserConnectionFields =
-  | 'pageInfo'
-  | 'edges'
-  | 'aggregate'
-
-
-
-  
-
-export interface UserConnectionFieldDetails {
-  pageInfo: {
-    type: 'PageInfo'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"UserConnection">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.PageInfo> | prisma.PageInfo
-  }
-  edges: {
-    type: 'UserEdge'
-    args: {}
-    description: string
-    list: true
-    nullable: false
-    resolve: (
-      root: core.RootValue<"UserConnection">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.UserEdge[]> | prisma.UserEdge[]
-  }
-  aggregate: {
-    type: 'AggregateUser'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"UserConnection">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.AggregateUser> | prisma.AggregateUser
-  }
-}
-  
-
-// Types for PageInfo
-
-type PageInfoObject =
-  | PageInfoFields
-  | { name: 'hasNextPage', args?: [] | false, alias?: string  } 
-  | { name: 'hasPreviousPage', args?: [] | false, alias?: string  } 
-  | { name: 'startCursor', args?: [] | false, alias?: string  } 
-  | { name: 'endCursor', args?: [] | false, alias?: string  } 
-
-type PageInfoFields =
-  | 'hasNextPage'
-  | 'hasPreviousPage'
-  | 'startCursor'
-  | 'endCursor'
-
-
-
-  
-
-export interface PageInfoFieldDetails {
-  hasNextPage: {
-    type: 'Boolean'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  hasPreviousPage: {
-    type: 'Boolean'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-  startCursor: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: undefined
-  }
-  endCursor: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: true
-    resolve: undefined
-  }
-}
-  
-
-// Types for UserEdge
-
-type UserEdgeObject =
-  | UserEdgeFields
-  | { name: 'node', args?: [] | false, alias?: string  } 
-  | { name: 'cursor', args?: [] | false, alias?: string  } 
-
-type UserEdgeFields =
-  | 'node'
-  | 'cursor'
-
-
-
-  
-
-export interface UserEdgeFieldDetails {
-  node: {
-    type: 'User'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: (
-      root: core.RootValue<"UserEdge">,
-      args: {  }  ,
-      context: core.GetGen<"context">,
-      info?: GraphQLResolveInfo
-    ) => Promise<prisma.User> | prisma.User
-  }
-  cursor: {
-    type: 'String'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
-  }
-}
-  
-
-// Types for AggregateUser
-
-type AggregateUserObject =
-  | AggregateUserFields
-  | { name: 'count', args?: [] | false, alias?: string  } 
-
-type AggregateUserFields =
-  | 'count'
-
-
-
-  
-
-export interface AggregateUserFieldDetails {
-  count: {
-    type: 'Int'
-    args: {}
-    description: string
-    list: undefined
-    nullable: false
-    resolve: undefined
   }
 }
   
@@ -661,53 +808,190 @@ export interface AggregatePostFieldDetails {
 }
   
 
+// Types for UserConnection
+
+type UserConnectionObject =
+  | UserConnectionFields
+  | { name: 'pageInfo', args?: [] | false, alias?: string  } 
+  | { name: 'edges', args?: [] | false, alias?: string  } 
+  | { name: 'aggregate', args?: [] | false, alias?: string  } 
+
+type UserConnectionFields =
+  | 'pageInfo'
+  | 'edges'
+  | 'aggregate'
+
+
+
+  
+
+export interface UserConnectionFieldDetails {
+  pageInfo: {
+    type: 'PageInfo'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"UserConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.PageInfo> | prisma.PageInfo
+  }
+  edges: {
+    type: 'UserEdge'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: (
+      root: core.RootValue<"UserConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.UserEdge[]> | prisma.UserEdge[]
+  }
+  aggregate: {
+    type: 'AggregateUser'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"UserConnection">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.AggregateUser> | prisma.AggregateUser
+  }
+}
+  
+
+// Types for UserEdge
+
+type UserEdgeObject =
+  | UserEdgeFields
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'cursor', args?: [] | false, alias?: string  } 
+
+type UserEdgeFields =
+  | 'node'
+  | 'cursor'
+
+
+
+  
+
+export interface UserEdgeFieldDetails {
+  node: {
+    type: 'User'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"UserEdge">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.User> | prisma.User
+  }
+  cursor: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+// Types for AggregateUser
+
+type AggregateUserObject =
+  | AggregateUserFields
+  | { name: 'count', args?: [] | false, alias?: string  } 
+
+type AggregateUserFields =
+  | 'count'
+
+
+
+  
+
+export interface AggregateUserFieldDetails {
+  count: {
+    type: 'Int'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
 // Types for Mutation
 
 type MutationObject =
   | MutationFields
-  | { name: 'createUser', args?: MutationCreateUserArgs[] | false, alias?: string  } 
-  | { name: 'updateUser', args?: MutationUpdateUserArgs[] | false, alias?: string  } 
-  | { name: 'updateManyUsers', args?: MutationUpdateManyUsersArgs[] | false, alias?: string  } 
-  | { name: 'upsertUser', args?: MutationUpsertUserArgs[] | false, alias?: string  } 
-  | { name: 'deleteUser', args?: MutationDeleteUserArgs[] | false, alias?: string  } 
-  | { name: 'deleteManyUsers', args?: MutationDeleteManyUsersArgs[] | false, alias?: string  } 
+  | { name: 'createAddress', args?: MutationCreateAddressArgs[] | false, alias?: string  } 
+  | { name: 'updateAddress', args?: MutationUpdateAddressArgs[] | false, alias?: string  } 
+  | { name: 'updateManyAddresses', args?: MutationUpdateManyAddressesArgs[] | false, alias?: string  } 
+  | { name: 'upsertAddress', args?: MutationUpsertAddressArgs[] | false, alias?: string  } 
+  | { name: 'deleteAddress', args?: MutationDeleteAddressArgs[] | false, alias?: string  } 
+  | { name: 'deleteManyAddresses', args?: MutationDeleteManyAddressesArgs[] | false, alias?: string  } 
   | { name: 'createPost', args?: MutationCreatePostArgs[] | false, alias?: string  } 
   | { name: 'updatePost', args?: MutationUpdatePostArgs[] | false, alias?: string  } 
   | { name: 'updateManyPosts', args?: MutationUpdateManyPostsArgs[] | false, alias?: string  } 
   | { name: 'upsertPost', args?: MutationUpsertPostArgs[] | false, alias?: string  } 
   | { name: 'deletePost', args?: MutationDeletePostArgs[] | false, alias?: string  } 
   | { name: 'deleteManyPosts', args?: MutationDeleteManyPostsArgs[] | false, alias?: string  } 
+  | { name: 'createUser', args?: MutationCreateUserArgs[] | false, alias?: string  } 
+  | { name: 'updateUser', args?: MutationUpdateUserArgs[] | false, alias?: string  } 
+  | { name: 'updateManyUsers', args?: MutationUpdateManyUsersArgs[] | false, alias?: string  } 
+  | { name: 'upsertUser', args?: MutationUpsertUserArgs[] | false, alias?: string  } 
+  | { name: 'deleteUser', args?: MutationDeleteUserArgs[] | false, alias?: string  } 
+  | { name: 'deleteManyUsers', args?: MutationDeleteManyUsersArgs[] | false, alias?: string  } 
 
 type MutationFields =
-  | 'createUser'
-  | 'updateUser'
-  | 'updateManyUsers'
-  | 'upsertUser'
-  | 'deleteUser'
-  | 'deleteManyUsers'
+  | 'createAddress'
+  | 'updateAddress'
+  | 'updateManyAddresses'
+  | 'upsertAddress'
+  | 'deleteAddress'
+  | 'deleteManyAddresses'
   | 'createPost'
   | 'updatePost'
   | 'updateManyPosts'
   | 'upsertPost'
   | 'deletePost'
   | 'deleteManyPosts'
+  | 'createUser'
+  | 'updateUser'
+  | 'updateManyUsers'
+  | 'upsertUser'
+  | 'deleteUser'
+  | 'deleteManyUsers'
 
 
-type MutationCreateUserArgs =
+type MutationCreateAddressArgs =
   | 'data'
-type MutationUpdateUserArgs =
-  | 'data'
-  | 'where'
-type MutationUpdateManyUsersArgs =
+type MutationUpdateAddressArgs =
   | 'data'
   | 'where'
-type MutationUpsertUserArgs =
+type MutationUpdateManyAddressesArgs =
+  | 'data'
+  | 'where'
+type MutationUpsertAddressArgs =
   | 'where'
   | 'create'
   | 'update'
-type MutationDeleteUserArgs =
+type MutationDeleteAddressArgs =
   | 'where'
-type MutationDeleteManyUsersArgs =
+type MutationDeleteManyAddressesArgs =
   | 'where'
 type MutationCreatePostArgs =
   | 'data'
@@ -725,83 +1009,99 @@ type MutationDeletePostArgs =
   | 'where'
 type MutationDeleteManyPostsArgs =
   | 'where'
+type MutationCreateUserArgs =
+  | 'data'
+type MutationUpdateUserArgs =
+  | 'data'
+  | 'where'
+type MutationUpdateManyUsersArgs =
+  | 'data'
+  | 'where'
+type MutationUpsertUserArgs =
+  | 'where'
+  | 'create'
+  | 'update'
+type MutationDeleteUserArgs =
+  | 'where'
+type MutationDeleteManyUsersArgs =
+  | 'where'
   
 
 export interface MutationFieldDetails {
-  createUser: {
-    type: 'User'
-    args: Record<MutationCreateUserArgs, core.NexusArgDef<string>>
+  createAddress: {
+    type: 'Address'
+    args: Record<MutationCreateAddressArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: false
     resolve: (
       root: core.RootValue<"Mutation">,
-      args: { data: UserCreateInput }  ,
+      args: { data: AddressCreateInput }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.User> | prisma.User
+    ) => Promise<prisma.Address> | prisma.Address
   }
-  updateUser: {
-    type: 'User'
-    args: Record<MutationUpdateUserArgs, core.NexusArgDef<string>>
+  updateAddress: {
+    type: 'Address'
+    args: Record<MutationUpdateAddressArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: true
     resolve: (
       root: core.RootValue<"Mutation">,
-      args: { data: UserUpdateInput, where: UserWhereUniqueInput }  ,
+      args: { data: AddressUpdateInput, where: AddressWhereUniqueInput }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.User | null> | prisma.User | null
+    ) => Promise<prisma.Address | null> | prisma.Address | null
   }
-  updateManyUsers: {
+  updateManyAddresses: {
     type: 'BatchPayload'
-    args: Record<MutationUpdateManyUsersArgs, core.NexusArgDef<string>>
+    args: Record<MutationUpdateManyAddressesArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: false
     resolve: (
       root: core.RootValue<"Mutation">,
-      args: { data: UserUpdateManyMutationInput, where?: UserWhereInput | null }  ,
+      args: { data: AddressUpdateManyMutationInput, where?: AddressWhereInput | null }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
   }
-  upsertUser: {
-    type: 'User'
-    args: Record<MutationUpsertUserArgs, core.NexusArgDef<string>>
+  upsertAddress: {
+    type: 'Address'
+    args: Record<MutationUpsertAddressArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: false
     resolve: (
       root: core.RootValue<"Mutation">,
-      args: { where: UserWhereUniqueInput, create: UserCreateInput, update: UserUpdateInput }  ,
+      args: { where: AddressWhereUniqueInput, create: AddressCreateInput, update: AddressUpdateInput }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.User> | prisma.User
+    ) => Promise<prisma.Address> | prisma.Address
   }
-  deleteUser: {
-    type: 'User'
-    args: Record<MutationDeleteUserArgs, core.NexusArgDef<string>>
+  deleteAddress: {
+    type: 'Address'
+    args: Record<MutationDeleteAddressArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: true
     resolve: (
       root: core.RootValue<"Mutation">,
-      args: { where: UserWhereUniqueInput }  ,
+      args: { where: AddressWhereUniqueInput }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.User | null> | prisma.User | null
+    ) => Promise<prisma.Address | null> | prisma.Address | null
   }
-  deleteManyUsers: {
+  deleteManyAddresses: {
     type: 'BatchPayload'
-    args: Record<MutationDeleteManyUsersArgs, core.NexusArgDef<string>>
+    args: Record<MutationDeleteManyAddressesArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: false
     resolve: (
       root: core.RootValue<"Mutation">,
-      args: { where?: UserWhereInput | null }  ,
+      args: { where?: AddressWhereInput | null }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
@@ -884,6 +1184,84 @@ export interface MutationFieldDetails {
       info?: GraphQLResolveInfo
     ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
   }
+  createUser: {
+    type: 'User'
+    args: Record<MutationCreateUserArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: UserCreateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.User> | prisma.User
+  }
+  updateUser: {
+    type: 'User'
+    args: Record<MutationUpdateUserArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: UserUpdateInput, where: UserWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.User | null> | prisma.User | null
+  }
+  updateManyUsers: {
+    type: 'BatchPayload'
+    args: Record<MutationUpdateManyUsersArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { data: UserUpdateManyMutationInput, where?: UserWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
+  upsertUser: {
+    type: 'User'
+    args: Record<MutationUpsertUserArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: UserWhereUniqueInput, create: UserCreateInput, update: UserUpdateInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.User> | prisma.User
+  }
+  deleteUser: {
+    type: 'User'
+    args: Record<MutationDeleteUserArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where: UserWhereUniqueInput }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.User | null> | prisma.User | null
+  }
+  deleteManyUsers: {
+    type: 'BatchPayload'
+    args: Record<MutationDeleteManyUsersArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"Mutation">,
+      args: { where?: UserWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.BatchPayload> | prisma.BatchPayload
+  }
 }
   
 
@@ -916,33 +1294,37 @@ export interface BatchPayloadFieldDetails {
 
 type SubscriptionObject =
   | SubscriptionFields
-  | { name: 'user', args?: SubscriptionUserArgs[] | false, alias?: string  } 
+  | { name: 'address', args?: SubscriptionAddressArgs[] | false, alias?: string  } 
   | { name: 'post', args?: SubscriptionPostArgs[] | false, alias?: string  } 
+  | { name: 'user', args?: SubscriptionUserArgs[] | false, alias?: string  } 
 
 type SubscriptionFields =
-  | 'user'
+  | 'address'
   | 'post'
+  | 'user'
 
 
-type SubscriptionUserArgs =
+type SubscriptionAddressArgs =
   | 'where'
 type SubscriptionPostArgs =
+  | 'where'
+type SubscriptionUserArgs =
   | 'where'
   
 
 export interface SubscriptionFieldDetails {
-  user: {
-    type: 'UserSubscriptionPayload'
-    args: Record<SubscriptionUserArgs, core.NexusArgDef<string>>
+  address: {
+    type: 'AddressSubscriptionPayload'
+    args: Record<SubscriptionAddressArgs, core.NexusArgDef<string>>
     description: string
     list: undefined
     nullable: true
     resolve: (
       root: core.RootValue<"Subscription">,
-      args: { where?: UserSubscriptionWhereInput | null }  ,
+      args: { where?: AddressSubscriptionWhereInput | null }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.UserSubscriptionPayload | null> | prisma.UserSubscriptionPayload | null
+    ) => Promise<prisma.AddressSubscriptionPayload | null> | prisma.AddressSubscriptionPayload | null
   }
   post: {
     type: 'PostSubscriptionPayload'
@@ -957,19 +1339,32 @@ export interface SubscriptionFieldDetails {
       info?: GraphQLResolveInfo
     ) => Promise<prisma.PostSubscriptionPayload | null> | prisma.PostSubscriptionPayload | null
   }
+  user: {
+    type: 'UserSubscriptionPayload'
+    args: Record<SubscriptionUserArgs, core.NexusArgDef<string>>
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"Subscription">,
+      args: { where?: UserSubscriptionWhereInput | null }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.UserSubscriptionPayload | null> | prisma.UserSubscriptionPayload | null
+  }
 }
   
 
-// Types for UserSubscriptionPayload
+// Types for AddressSubscriptionPayload
 
-type UserSubscriptionPayloadObject =
-  | UserSubscriptionPayloadFields
+type AddressSubscriptionPayloadObject =
+  | AddressSubscriptionPayloadFields
   | { name: 'mutation', args?: [] | false, alias?: string  } 
   | { name: 'node', args?: [] | false, alias?: string  } 
   | { name: 'updatedFields', args?: [] | false, alias?: string  } 
   | { name: 'previousValues', args?: [] | false, alias?: string  } 
 
-type UserSubscriptionPayloadFields =
+type AddressSubscriptionPayloadFields =
   | 'mutation'
   | 'node'
   | 'updatedFields'
@@ -979,7 +1374,7 @@ type UserSubscriptionPayloadFields =
 
   
 
-export interface UserSubscriptionPayloadFieldDetails {
+export interface AddressSubscriptionPayloadFieldDetails {
   mutation: {
     type: 'MutationType'
     args: {}
@@ -987,24 +1382,24 @@ export interface UserSubscriptionPayloadFieldDetails {
     list: undefined
     nullable: false
     resolve: (
-      root: core.RootValue<"UserSubscriptionPayload">,
+      root: core.RootValue<"AddressSubscriptionPayload">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
     ) => Promise<prisma.MutationType> | prisma.MutationType
   }
   node: {
-    type: 'User'
+    type: 'Address'
     args: {}
     description: string
     list: undefined
     nullable: true
     resolve: (
-      root: core.RootValue<"UserSubscriptionPayload">,
+      root: core.RootValue<"AddressSubscriptionPayload">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.User | null> | prisma.User | null
+    ) => Promise<prisma.Address | null> | prisma.Address | null
   }
   updatedFields: {
     type: 'String'
@@ -1015,39 +1410,43 @@ export interface UserSubscriptionPayloadFieldDetails {
     resolve: undefined
   }
   previousValues: {
-    type: 'UserPreviousValues'
+    type: 'AddressPreviousValues'
     args: {}
     description: string
     list: undefined
     nullable: true
     resolve: (
-      root: core.RootValue<"UserSubscriptionPayload">,
+      root: core.RootValue<"AddressSubscriptionPayload">,
       args: {  }  ,
       context: core.GetGen<"context">,
       info?: GraphQLResolveInfo
-    ) => Promise<prisma.UserPreviousValues | null> | prisma.UserPreviousValues | null
+    ) => Promise<prisma.AddressPreviousValues | null> | prisma.AddressPreviousValues | null
   }
 }
   
 
-// Types for UserPreviousValues
+// Types for AddressPreviousValues
 
-type UserPreviousValuesObject =
-  | UserPreviousValuesFields
+type AddressPreviousValuesObject =
+  | AddressPreviousValuesFields
   | { name: 'id', args?: [] | false, alias?: string  } 
-  | { name: 'email', args?: [] | false, alias?: string  } 
-  | { name: 'name', args?: [] | false, alias?: string  } 
+  | { name: 'street', args?: [] | false, alias?: string  } 
+  | { name: 'city', args?: [] | false, alias?: string  } 
+  | { name: 'state', args?: [] | false, alias?: string  } 
+  | { name: 'zip', args?: [] | false, alias?: string  } 
 
-type UserPreviousValuesFields =
+type AddressPreviousValuesFields =
   | 'id'
-  | 'email'
-  | 'name'
+  | 'street'
+  | 'city'
+  | 'state'
+  | 'zip'
 
 
 
   
 
-export interface UserPreviousValuesFieldDetails {
+export interface AddressPreviousValuesFieldDetails {
   id: {
     type: 'ID'
     args: {}
@@ -1056,15 +1455,31 @@ export interface UserPreviousValuesFieldDetails {
     nullable: false
     resolve: undefined
   }
-  email: {
+  street: {
     type: 'String'
     args: {}
     description: string
     list: undefined
-    nullable: true
+    nullable: false
     resolve: undefined
   }
-  name: {
+  city: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  state: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  zip: {
     type: 'String'
     args: {}
     description: string
@@ -1190,15 +1605,286 @@ export interface PostPreviousValuesFieldDetails {
 }
   
 
+// Types for UserSubscriptionPayload
 
-export interface UserWhereUniqueInput {
-  id?: string | null
-  email?: string | null
+type UserSubscriptionPayloadObject =
+  | UserSubscriptionPayloadFields
+  | { name: 'mutation', args?: [] | false, alias?: string  } 
+  | { name: 'node', args?: [] | false, alias?: string  } 
+  | { name: 'updatedFields', args?: [] | false, alias?: string  } 
+  | { name: 'previousValues', args?: [] | false, alias?: string  } 
+
+type UserSubscriptionPayloadFields =
+  | 'mutation'
+  | 'node'
+  | 'updatedFields'
+  | 'previousValues'
+
+
+
+  
+
+export interface UserSubscriptionPayloadFieldDetails {
+  mutation: {
+    type: 'MutationType'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: (
+      root: core.RootValue<"UserSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.MutationType> | prisma.MutationType
+  }
+  node: {
+    type: 'User'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"UserSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.User | null> | prisma.User | null
+  }
+  updatedFields: {
+    type: 'String'
+    args: {}
+    description: string
+    list: true
+    nullable: false
+    resolve: undefined
+  }
+  previousValues: {
+    type: 'UserPreviousValues'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: (
+      root: core.RootValue<"UserSubscriptionPayload">,
+      args: {  }  ,
+      context: core.GetGen<"context">,
+      info?: GraphQLResolveInfo
+    ) => Promise<prisma.UserPreviousValues | null> | prisma.UserPreviousValues | null
+  }
 }
-export type UserWhereUniqueInputInputObject =
-  | Extract<keyof UserWhereUniqueInput, string>
+  
+
+// Types for UserPreviousValues
+
+type UserPreviousValuesObject =
+  | UserPreviousValuesFields
+  | { name: 'id', args?: [] | false, alias?: string  } 
+  | { name: 'email', args?: [] | false, alias?: string  } 
+  | { name: 'name', args?: [] | false, alias?: string  } 
+
+type UserPreviousValuesFields =
+  | 'id'
+  | 'email'
+  | 'name'
+
+
+
+  
+
+export interface UserPreviousValuesFieldDetails {
+  id: {
+    type: 'ID'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+  email: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: true
+    resolve: undefined
+  }
+  name: {
+    type: 'String'
+    args: {}
+    description: string
+    list: undefined
+    nullable: false
+    resolve: undefined
+  }
+}
+  
+
+
+export interface AddressWhereUniqueInput {
+  id?: string | null
+}
+export type AddressWhereUniqueInputInputObject =
+  | Extract<keyof AddressWhereUniqueInput, string>
   | { name: 'id', alias?: string  } 
-  | { name: 'email', alias?: string  } 
+  
+export interface AddressWhereInput {
+  id?: string | null
+  id_not?: string | null
+  id_in?: string[]
+  id_not_in?: string[]
+  id_lt?: string | null
+  id_lte?: string | null
+  id_gt?: string | null
+  id_gte?: string | null
+  id_contains?: string | null
+  id_not_contains?: string | null
+  id_starts_with?: string | null
+  id_not_starts_with?: string | null
+  id_ends_with?: string | null
+  id_not_ends_with?: string | null
+  street?: string | null
+  street_not?: string | null
+  street_in?: string[]
+  street_not_in?: string[]
+  street_lt?: string | null
+  street_lte?: string | null
+  street_gt?: string | null
+  street_gte?: string | null
+  street_contains?: string | null
+  street_not_contains?: string | null
+  street_starts_with?: string | null
+  street_not_starts_with?: string | null
+  street_ends_with?: string | null
+  street_not_ends_with?: string | null
+  city?: string | null
+  city_not?: string | null
+  city_in?: string[]
+  city_not_in?: string[]
+  city_lt?: string | null
+  city_lte?: string | null
+  city_gt?: string | null
+  city_gte?: string | null
+  city_contains?: string | null
+  city_not_contains?: string | null
+  city_starts_with?: string | null
+  city_not_starts_with?: string | null
+  city_ends_with?: string | null
+  city_not_ends_with?: string | null
+  state?: string | null
+  state_not?: string | null
+  state_in?: string[]
+  state_not_in?: string[]
+  state_lt?: string | null
+  state_lte?: string | null
+  state_gt?: string | null
+  state_gte?: string | null
+  state_contains?: string | null
+  state_not_contains?: string | null
+  state_starts_with?: string | null
+  state_not_starts_with?: string | null
+  state_ends_with?: string | null
+  state_not_ends_with?: string | null
+  zip?: string | null
+  zip_not?: string | null
+  zip_in?: string[]
+  zip_not_in?: string[]
+  zip_lt?: string | null
+  zip_lte?: string | null
+  zip_gt?: string | null
+  zip_gte?: string | null
+  zip_contains?: string | null
+  zip_not_contains?: string | null
+  zip_starts_with?: string | null
+  zip_not_starts_with?: string | null
+  zip_ends_with?: string | null
+  zip_not_ends_with?: string | null
+  AND?: AddressWhereInput[]
+  OR?: AddressWhereInput[]
+  NOT?: AddressWhereInput[]
+}
+export type AddressWhereInputInputObject =
+  | Extract<keyof AddressWhereInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'id_not', alias?: string  } 
+  | { name: 'id_in', alias?: string  } 
+  | { name: 'id_not_in', alias?: string  } 
+  | { name: 'id_lt', alias?: string  } 
+  | { name: 'id_lte', alias?: string  } 
+  | { name: 'id_gt', alias?: string  } 
+  | { name: 'id_gte', alias?: string  } 
+  | { name: 'id_contains', alias?: string  } 
+  | { name: 'id_not_contains', alias?: string  } 
+  | { name: 'id_starts_with', alias?: string  } 
+  | { name: 'id_not_starts_with', alias?: string  } 
+  | { name: 'id_ends_with', alias?: string  } 
+  | { name: 'id_not_ends_with', alias?: string  } 
+  | { name: 'street', alias?: string  } 
+  | { name: 'street_not', alias?: string  } 
+  | { name: 'street_in', alias?: string  } 
+  | { name: 'street_not_in', alias?: string  } 
+  | { name: 'street_lt', alias?: string  } 
+  | { name: 'street_lte', alias?: string  } 
+  | { name: 'street_gt', alias?: string  } 
+  | { name: 'street_gte', alias?: string  } 
+  | { name: 'street_contains', alias?: string  } 
+  | { name: 'street_not_contains', alias?: string  } 
+  | { name: 'street_starts_with', alias?: string  } 
+  | { name: 'street_not_starts_with', alias?: string  } 
+  | { name: 'street_ends_with', alias?: string  } 
+  | { name: 'street_not_ends_with', alias?: string  } 
+  | { name: 'city', alias?: string  } 
+  | { name: 'city_not', alias?: string  } 
+  | { name: 'city_in', alias?: string  } 
+  | { name: 'city_not_in', alias?: string  } 
+  | { name: 'city_lt', alias?: string  } 
+  | { name: 'city_lte', alias?: string  } 
+  | { name: 'city_gt', alias?: string  } 
+  | { name: 'city_gte', alias?: string  } 
+  | { name: 'city_contains', alias?: string  } 
+  | { name: 'city_not_contains', alias?: string  } 
+  | { name: 'city_starts_with', alias?: string  } 
+  | { name: 'city_not_starts_with', alias?: string  } 
+  | { name: 'city_ends_with', alias?: string  } 
+  | { name: 'city_not_ends_with', alias?: string  } 
+  | { name: 'state', alias?: string  } 
+  | { name: 'state_not', alias?: string  } 
+  | { name: 'state_in', alias?: string  } 
+  | { name: 'state_not_in', alias?: string  } 
+  | { name: 'state_lt', alias?: string  } 
+  | { name: 'state_lte', alias?: string  } 
+  | { name: 'state_gt', alias?: string  } 
+  | { name: 'state_gte', alias?: string  } 
+  | { name: 'state_contains', alias?: string  } 
+  | { name: 'state_not_contains', alias?: string  } 
+  | { name: 'state_starts_with', alias?: string  } 
+  | { name: 'state_not_starts_with', alias?: string  } 
+  | { name: 'state_ends_with', alias?: string  } 
+  | { name: 'state_not_ends_with', alias?: string  } 
+  | { name: 'zip', alias?: string  } 
+  | { name: 'zip_not', alias?: string  } 
+  | { name: 'zip_in', alias?: string  } 
+  | { name: 'zip_not_in', alias?: string  } 
+  | { name: 'zip_lt', alias?: string  } 
+  | { name: 'zip_lte', alias?: string  } 
+  | { name: 'zip_gt', alias?: string  } 
+  | { name: 'zip_gte', alias?: string  } 
+  | { name: 'zip_contains', alias?: string  } 
+  | { name: 'zip_not_contains', alias?: string  } 
+  | { name: 'zip_starts_with', alias?: string  } 
+  | { name: 'zip_not_starts_with', alias?: string  } 
+  | { name: 'zip_ends_with', alias?: string  } 
+  | { name: 'zip_not_ends_with', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
+export interface PostWhereUniqueInput {
+  id?: string | null
+}
+export type PostWhereUniqueInputInputObject =
+  | Extract<keyof PostWhereUniqueInput, string>
+  | { name: 'id', alias?: string  } 
   
 export interface PostWhereInput {
   id?: string | null
@@ -1374,12 +2060,143 @@ export type UserWhereInputInputObject =
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
   
-export interface PostWhereUniqueInput {
+export interface UserWhereUniqueInput {
   id?: string | null
+  email?: string | null
 }
-export type PostWhereUniqueInputInputObject =
-  | Extract<keyof PostWhereUniqueInput, string>
+export type UserWhereUniqueInputInputObject =
+  | Extract<keyof UserWhereUniqueInput, string>
   | { name: 'id', alias?: string  } 
+  | { name: 'email', alias?: string  } 
+  
+export interface AddressCreateInput {
+  id?: string | null
+  street?: string
+  city?: string
+  state?: string
+  zip?: string
+}
+export type AddressCreateInputInputObject =
+  | Extract<keyof AddressCreateInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'street', alias?: string  } 
+  | { name: 'city', alias?: string  } 
+  | { name: 'state', alias?: string  } 
+  | { name: 'zip', alias?: string  } 
+  
+export interface AddressUpdateInput {
+  street?: string | null
+  city?: string | null
+  state?: string | null
+  zip?: string | null
+}
+export type AddressUpdateInputInputObject =
+  | Extract<keyof AddressUpdateInput, string>
+  | { name: 'street', alias?: string  } 
+  | { name: 'city', alias?: string  } 
+  | { name: 'state', alias?: string  } 
+  | { name: 'zip', alias?: string  } 
+  
+export interface AddressUpdateManyMutationInput {
+  street?: string | null
+  city?: string | null
+  state?: string | null
+  zip?: string | null
+}
+export type AddressUpdateManyMutationInputInputObject =
+  | Extract<keyof AddressUpdateManyMutationInput, string>
+  | { name: 'street', alias?: string  } 
+  | { name: 'city', alias?: string  } 
+  | { name: 'state', alias?: string  } 
+  | { name: 'zip', alias?: string  } 
+  
+export interface PostCreateInput {
+  id?: string | null
+  title?: string
+  published?: boolean | null
+  author?: UserCreateOneWithoutPostsInput | null
+}
+export type PostCreateInputInputObject =
+  | Extract<keyof PostCreateInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'title', alias?: string  } 
+  | { name: 'published', alias?: string  } 
+  | { name: 'author', alias?: string  } 
+  
+export interface UserCreateOneWithoutPostsInput {
+  create?: UserCreateWithoutPostsInput | null
+  connect?: UserWhereUniqueInput | null
+}
+export type UserCreateOneWithoutPostsInputInputObject =
+  | Extract<keyof UserCreateOneWithoutPostsInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface UserCreateWithoutPostsInput {
+  id?: string | null
+  email?: string | null
+  name?: string
+}
+export type UserCreateWithoutPostsInputInputObject =
+  | Extract<keyof UserCreateWithoutPostsInput, string>
+  | { name: 'id', alias?: string  } 
+  | { name: 'email', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  
+export interface PostUpdateInput {
+  title?: string | null
+  published?: boolean | null
+  author?: UserUpdateOneWithoutPostsInput | null
+}
+export type PostUpdateInputInputObject =
+  | Extract<keyof PostUpdateInput, string>
+  | { name: 'title', alias?: string  } 
+  | { name: 'published', alias?: string  } 
+  | { name: 'author', alias?: string  } 
+  
+export interface UserUpdateOneWithoutPostsInput {
+  create?: UserCreateWithoutPostsInput | null
+  update?: UserUpdateWithoutPostsDataInput | null
+  upsert?: UserUpsertWithoutPostsInput | null
+  delete?: boolean | null
+  disconnect?: boolean | null
+  connect?: UserWhereUniqueInput | null
+}
+export type UserUpdateOneWithoutPostsInputInputObject =
+  | Extract<keyof UserUpdateOneWithoutPostsInput, string>
+  | { name: 'create', alias?: string  } 
+  | { name: 'update', alias?: string  } 
+  | { name: 'upsert', alias?: string  } 
+  | { name: 'delete', alias?: string  } 
+  | { name: 'disconnect', alias?: string  } 
+  | { name: 'connect', alias?: string  } 
+  
+export interface UserUpdateWithoutPostsDataInput {
+  email?: string | null
+  name?: string | null
+}
+export type UserUpdateWithoutPostsDataInputInputObject =
+  | Extract<keyof UserUpdateWithoutPostsDataInput, string>
+  | { name: 'email', alias?: string  } 
+  | { name: 'name', alias?: string  } 
+  
+export interface UserUpsertWithoutPostsInput {
+  update?: UserUpdateWithoutPostsDataInput
+  create?: UserCreateWithoutPostsInput
+}
+export type UserUpsertWithoutPostsInputInputObject =
+  | Extract<keyof UserUpsertWithoutPostsInput, string>
+  | { name: 'update', alias?: string  } 
+  | { name: 'create', alias?: string  } 
+  
+export interface PostUpdateManyMutationInput {
+  title?: string | null
+  published?: boolean | null
+}
+export type PostUpdateManyMutationInputInputObject =
+  | Extract<keyof PostUpdateManyMutationInput, string>
+  | { name: 'title', alias?: string  } 
+  | { name: 'published', alias?: string  } 
   
 export interface UserCreateInput {
   id?: string | null
@@ -1575,106 +2392,18 @@ export type UserUpdateManyMutationInputInputObject =
   | { name: 'email', alias?: string  } 
   | { name: 'name', alias?: string  } 
   
-export interface PostCreateInput {
-  id?: string | null
-  title?: string
-  published?: boolean | null
-  author?: UserCreateOneWithoutPostsInput | null
-}
-export type PostCreateInputInputObject =
-  | Extract<keyof PostCreateInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'title', alias?: string  } 
-  | { name: 'published', alias?: string  } 
-  | { name: 'author', alias?: string  } 
-  
-export interface UserCreateOneWithoutPostsInput {
-  create?: UserCreateWithoutPostsInput | null
-  connect?: UserWhereUniqueInput | null
-}
-export type UserCreateOneWithoutPostsInputInputObject =
-  | Extract<keyof UserCreateOneWithoutPostsInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface UserCreateWithoutPostsInput {
-  id?: string | null
-  email?: string | null
-  name?: string
-}
-export type UserCreateWithoutPostsInputInputObject =
-  | Extract<keyof UserCreateWithoutPostsInput, string>
-  | { name: 'id', alias?: string  } 
-  | { name: 'email', alias?: string  } 
-  | { name: 'name', alias?: string  } 
-  
-export interface PostUpdateInput {
-  title?: string | null
-  published?: boolean | null
-  author?: UserUpdateOneWithoutPostsInput | null
-}
-export type PostUpdateInputInputObject =
-  | Extract<keyof PostUpdateInput, string>
-  | { name: 'title', alias?: string  } 
-  | { name: 'published', alias?: string  } 
-  | { name: 'author', alias?: string  } 
-  
-export interface UserUpdateOneWithoutPostsInput {
-  create?: UserCreateWithoutPostsInput | null
-  update?: UserUpdateWithoutPostsDataInput | null
-  upsert?: UserUpsertWithoutPostsInput | null
-  delete?: boolean | null
-  disconnect?: boolean | null
-  connect?: UserWhereUniqueInput | null
-}
-export type UserUpdateOneWithoutPostsInputInputObject =
-  | Extract<keyof UserUpdateOneWithoutPostsInput, string>
-  | { name: 'create', alias?: string  } 
-  | { name: 'update', alias?: string  } 
-  | { name: 'upsert', alias?: string  } 
-  | { name: 'delete', alias?: string  } 
-  | { name: 'disconnect', alias?: string  } 
-  | { name: 'connect', alias?: string  } 
-  
-export interface UserUpdateWithoutPostsDataInput {
-  email?: string | null
-  name?: string | null
-}
-export type UserUpdateWithoutPostsDataInputInputObject =
-  | Extract<keyof UserUpdateWithoutPostsDataInput, string>
-  | { name: 'email', alias?: string  } 
-  | { name: 'name', alias?: string  } 
-  
-export interface UserUpsertWithoutPostsInput {
-  update?: UserUpdateWithoutPostsDataInput
-  create?: UserCreateWithoutPostsInput
-}
-export type UserUpsertWithoutPostsInputInputObject =
-  | Extract<keyof UserUpsertWithoutPostsInput, string>
-  | { name: 'update', alias?: string  } 
-  | { name: 'create', alias?: string  } 
-  
-export interface PostUpdateManyMutationInput {
-  title?: string | null
-  published?: boolean | null
-}
-export type PostUpdateManyMutationInputInputObject =
-  | Extract<keyof PostUpdateManyMutationInput, string>
-  | { name: 'title', alias?: string  } 
-  | { name: 'published', alias?: string  } 
-  
-export interface UserSubscriptionWhereInput {
+export interface AddressSubscriptionWhereInput {
   mutation_in?: prisma.MutationType[]
   updatedFields_contains?: string | null
   updatedFields_contains_every?: string[]
   updatedFields_contains_some?: string[]
-  node?: UserWhereInput | null
-  AND?: UserSubscriptionWhereInput[]
-  OR?: UserSubscriptionWhereInput[]
-  NOT?: UserSubscriptionWhereInput[]
+  node?: AddressWhereInput | null
+  AND?: AddressSubscriptionWhereInput[]
+  OR?: AddressSubscriptionWhereInput[]
+  NOT?: AddressSubscriptionWhereInput[]
 }
-export type UserSubscriptionWhereInputInputObject =
-  | Extract<keyof UserSubscriptionWhereInput, string>
+export type AddressSubscriptionWhereInputInputObject =
+  | Extract<keyof AddressSubscriptionWhereInput, string>
   | { name: 'mutation_in', alias?: string  } 
   | { name: 'updatedFields_contains', alias?: string  } 
   | { name: 'updatedFields_contains_every', alias?: string  } 
@@ -1705,7 +2434,44 @@ export type PostSubscriptionWhereInputInputObject =
   | { name: 'OR', alias?: string  } 
   | { name: 'NOT', alias?: string  } 
   
+export interface UserSubscriptionWhereInput {
+  mutation_in?: prisma.MutationType[]
+  updatedFields_contains?: string | null
+  updatedFields_contains_every?: string[]
+  updatedFields_contains_some?: string[]
+  node?: UserWhereInput | null
+  AND?: UserSubscriptionWhereInput[]
+  OR?: UserSubscriptionWhereInput[]
+  NOT?: UserSubscriptionWhereInput[]
+}
+export type UserSubscriptionWhereInputInputObject =
+  | Extract<keyof UserSubscriptionWhereInput, string>
+  | { name: 'mutation_in', alias?: string  } 
+  | { name: 'updatedFields_contains', alias?: string  } 
+  | { name: 'updatedFields_contains_every', alias?: string  } 
+  | { name: 'updatedFields_contains_some', alias?: string  } 
+  | { name: 'node', alias?: string  } 
+  | { name: 'AND', alias?: string  } 
+  | { name: 'OR', alias?: string  } 
+  | { name: 'NOT', alias?: string  } 
+  
 
+export type AddressOrderByInputValues =
+  | 'id_ASC'
+  | 'id_DESC'
+  | 'street_ASC'
+  | 'street_DESC'
+  | 'city_ASC'
+  | 'city_DESC'
+  | 'state_ASC'
+  | 'state_DESC'
+  | 'zip_ASC'
+  | 'zip_DESC'
+  | 'createdAt_ASC'
+  | 'createdAt_DESC'
+  | 'updatedAt_ASC'
+  | 'updatedAt_DESC'
+  
 export type PostOrderByInputValues =
   | 'id_ASC'
   | 'id_DESC'
